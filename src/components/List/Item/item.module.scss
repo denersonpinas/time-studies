@@ -1,0 +1,13 @@
+.list__item {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: .25rem;
+
+    color: #f0f0f0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: #939a9e;
+    box-shadow: 1px 1px 1rem #000;
+}

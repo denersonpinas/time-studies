@@ -1,0 +1,23 @@
+.section-Stopwatch {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.stopwatch_title {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #f0f0f0;
+}
+
+.stopwatch_watch {
+    display: flex;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 3rem 1rem;
+    background-color: #161a1f;
+    border-radius: .25rem;
+}

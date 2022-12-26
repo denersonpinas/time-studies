@@ -1,0 +1,12 @@
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10%;
+}
+
+.app_column {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
