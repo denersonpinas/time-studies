@@ -1,6 +1,7 @@
 .list__item {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     gap: .5rem;
     padding: 1rem;
     border-radius: .25rem;
@@ -10,6 +11,12 @@
     font-weight: 700;
     background-color: #939a9e;
     box-shadow: 1px 1px 1rem #000;
+
+    .item_content {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
 }
 
 .list__item-select {
@@ -18,4 +25,12 @@
     font-weight: 700;
     background-color: #424e5b;
     box-shadow: inset 2px 2px .5rem #000;
+}
+
+.list__item-complete {
+    color: #161a1f;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, #3ffbe0 , #3fff7c);
+    box-shadow: 2px 2px .5rem #000;
 }

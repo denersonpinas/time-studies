@@ -6,10 +6,11 @@ import { useEffect, useState } from "react";
 import { timeToSecond } from "../../common/utils/time";
 
 interface Props {
-    select: ITask | undefined
+    select: ITask | undefined,
+    endTask: () => void
 }
 
-export function Stopwatch({select}: Props) {
+export function Stopwatch({select, endTask}: Props) {
 
     const [time, setTime] = useState<number>();
 
@@ -19,6 +20,17 @@ export function Stopwatch({select}: Props) {
         }
     }, [select]);
 
+    // Fuction recursive in stopwatch
+    function regressive(counter: number = 0) {
+        setTimeout(() => {
+            if(counter > 0) {
+                setTime(counter - 1);
+                return regressive(counter - 1)
+            }
+            endTask();
+        }, 1000);
+    }
+
     return (
         <div className={stopwatch["section-Stopwatch"]}>
             <h2 className={stopwatch["stopwatch_title"]}>
@@ -27,7 +39,7 @@ export function Stopwatch({select}: Props) {
             <div className={stopwatch["stopwatch_watch"]}>
                 <Watch time={time}/>
             </div>
-            <Button>
+            <Button onClick={() => regressive(time)}>
                 Start!
             </Button>
         </div>

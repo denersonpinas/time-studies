@@ -9,7 +9,7 @@ export function App() {
 
   const [task, setTask] = useState<ITask[]>([])
 
-  const [select, setSelect] = useState<ITask>();
+  const [selecting, setSelect] = useState<ITask>();
 
   function SelectTask(TaksSelecting: ITask) {
     setSelect(TaksSelecting);
@@ -19,11 +19,30 @@ export function App() {
     })));
   }
 
+  function endTask() {
+    if(selecting) {
+      setSelect(undefined)
+      setTask(lastTask => 
+        lastTask.map(tasks => {
+        if(tasks.id === selecting.id) {
+          return {
+            ...tasks,
+            select: false,
+            complete: true
+          }
+        }
+        return tasks
+      }))
+    }
+  }
+
   return (
     <div className={app["app"]}>
       <div className={app["app_column"]}>
         <Form setTask={setTask}/>
-        <Stopwatch select={select} />
+        <Stopwatch 
+          select={selecting}
+          endTask={endTask} />
       </div>
       <List 
         task={task}
